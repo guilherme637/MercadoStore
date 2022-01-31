@@ -6,4 +6,9 @@
       <extension name="ds" enabled="true" />
     </extensions>
   </component>
+  <component name="PhpUnit">
+    <phpunit_settings>
+      <PhpUnitSettings custom_loader_path="$PROJECT_DIR$/test/Strategy/CartaoTest.php" phpunit_phar_path="" />
+    </phpunit_settings>
+  </component>
 </project>

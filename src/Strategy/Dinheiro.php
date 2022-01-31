@@ -11,7 +11,7 @@ class Dinheiro extends PagamentoAbstract
         parent::__construct($valor);
     }
 
-    public function efetuarPagamento(float $totalAPagar): int
+    public function efetuarPagamento(float $totalAPagar): float
     {
         return $this->valor - $totalAPagar;
     }

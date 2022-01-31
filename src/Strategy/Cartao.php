@@ -14,7 +14,7 @@ class Cartao extends PagamentoAbstract
         $this->dividir = $dividir;
     }
 
-    public function efetuarPagamento(float $totalAPagar): int
+    public function efetuarPagamento(float $totalAPagar): float
     {
         if ($this->dividir > 9) {
             throw new \DomainException('É possivel dividir apenas 9 vezes no cartão');
@@ -24,12 +24,12 @@ class Cartao extends PagamentoAbstract
         //se a compra for didivda em 4 a 9 e o valor for menor que 200 é com juros
 
 
-        $valor = $totalAPagar / $this->dividir;
+        $valorAPagar = $totalAPagar / $this->dividir;
 
         if ($this->dividir >= 4 && $this->dividir <= 9 && $this->valor < 200) {
-            return  $valor * 0.2;
+            return  $valorAPagar * 0.2;
         }
 
-        return $valor;
+        return $this->valor - $valorAPagar;
     }
 }
